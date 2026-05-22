@@ -18,18 +18,18 @@
   --blush: #E8D5C4;
   --white: #FFFFFF;
 }
-
+ 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
+ 
 html { scroll-behavior: smooth; }
-
+ 
 body {
   font-family: 'Outfit', sans-serif;
   background: var(--cream);
   color: var(--bark);
   overflow-x: hidden;
 }
-
+ 
 /* ── GRAIN OVERLAY ── */
 body::before {
   content: '';
@@ -39,7 +39,7 @@ body::before {
   pointer-events: none;
   z-index: 9999;
 }
-
+ 
 /* ── NAV ── */
 nav {
   position: fixed;
@@ -55,16 +55,16 @@ nav {
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(44, 24, 16, 0.06);
 }
-
+ 
 .logo {
   font-family: 'DM Serif Display', serif;
   font-size: 1.5rem;
   color: var(--bark);
   letter-spacing: -0.02em;
 }
-
+ 
 .logo span { color: var(--moss); }
-
+ 
 .nav-cta {
   background: var(--moss);
   color: var(--cream);
@@ -76,12 +76,12 @@ nav {
   letter-spacing: 0.03em;
   transition: all 0.3s ease;
 }
-
+ 
 .nav-cta:hover {
   background: var(--bark);
   transform: translateY(-1px);
 }
-
+ 
 /* ── HERO ── */
 .hero {
   min-height: 100vh;
@@ -93,7 +93,7 @@ nav {
   padding: 8rem 2rem 4rem;
   position: relative;
 }
-
+ 
 .hero::before {
   content: '';
   position: absolute;
@@ -105,7 +105,7 @@ nav {
   border-radius: 50%;
   pointer-events: none;
 }
-
+ 
 .hero::after {
   content: '';
   position: absolute;
@@ -117,7 +117,7 @@ nav {
   border-radius: 50%;
   pointer-events: none;
 }
-
+ 
 .badge {
   display: inline-flex;
   align-items: center;
@@ -134,11 +134,11 @@ nav {
   margin-bottom: 2rem;
   animation: fadeUp 0.8s ease both;
 }
-
+ 
 .badge::before {
   content: '🌿';
 }
-
+ 
 h1 {
   font-family: 'DM Serif Display', serif;
   font-size: clamp(3rem, 7vw, 5.5rem);
@@ -147,12 +147,12 @@ h1 {
   max-width: 800px;
   animation: fadeUp 0.8s ease 0.1s both;
 }
-
+ 
 h1 em {
   font-style: italic;
   color: var(--moss);
 }
-
+ 
 .hero-sub {
   font-size: clamp(1.05rem, 2vw, 1.25rem);
   font-weight: 300;
@@ -162,7 +162,7 @@ h1 em {
   margin-top: 1.5rem;
   animation: fadeUp 0.8s ease 0.2s both;
 }
-
+ 
 /* ── EMAIL FORM ── */
 .cta-form {
   display: flex;
@@ -177,7 +177,7 @@ h1 em {
   max-width: 480px;
   width: 100%;
 }
-
+ 
 .cta-form input {
   flex: 1;
   border: none;
@@ -189,9 +189,9 @@ h1 em {
   color: var(--bark);
   min-width: 0;
 }
-
+ 
 .cta-form input::placeholder { color: var(--warm-gray); }
-
+ 
 .cta-form button {
   background: var(--moss);
   color: var(--cream);
@@ -206,25 +206,134 @@ h1 em {
   white-space: nowrap;
   letter-spacing: 0.02em;
 }
-
+ 
 .cta-form button:hover {
   background: var(--bark);
   transform: scale(1.02);
 }
-
+ 
 .form-note {
   font-size: 0.78rem;
   color: var(--warm-gray);
   margin-top: 0.85rem;
   animation: fadeUp 0.8s ease 0.4s both;
 }
-
+ 
+.social-proof {
+  font-size: 0.82rem;
+  color: var(--bark);
+  margin-top: 0.6rem;
+  animation: fadeUp 0.8s ease 0.5s both;
+  font-weight: 400;
+}
+ 
+.social-proof strong {
+  color: var(--moss);
+  font-weight: 600;
+}
+ 
+/* ── FOUNDING OFFER BANNER ── */
+.founding-offer {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: linear-gradient(135deg, rgba(74, 103, 65, 0.06) 0%, rgba(212, 168, 83, 0.08) 100%);
+  border-top: 1px solid rgba(74, 103, 65, 0.1);
+  border-bottom: 1px solid rgba(74, 103, 65, 0.1);
+}
+ 
+.founding-offer-inner {
+  max-width: 600px;
+  margin: 0 auto;
+}
+ 
+.founding-discount {
+  display: inline-block;
+  font-family: 'DM Serif Display', serif;
+  font-size: 3.5rem;
+  color: var(--moss);
+  line-height: 1;
+  margin-bottom: 0.75rem;
+}
+ 
+.founding-offer h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: 0.75rem;
+}
+ 
+.founding-offer p {
+  color: var(--warm-gray);
+  font-weight: 300;
+  line-height: 1.6;
+  margin-bottom: 0.25rem;
+}
+ 
+.spots-left {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+  padding: 0.6rem 1.3rem;
+  background: var(--white);
+  border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--bark);
+  box-shadow: 0 2px 12px rgba(44, 24, 16, 0.06);
+}
+ 
+.spots-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #D45B3E;
+  animation: pulse 2s ease infinite;
+}
+ 
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.3); }
+}
+ 
+/* ── GUARANTEE ── */
+.guarantee {
+  padding: 3.5rem 2rem;
+  text-align: center;
+}
+ 
+.guarantee-inner {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 2.5rem;
+  background: var(--white);
+  border-radius: 20px;
+  box-shadow: 0 4px 24px rgba(44, 24, 16, 0.04);
+  border: 1px solid rgba(44, 24, 16, 0.06);
+}
+ 
+.guarantee-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+ 
+.guarantee-inner h3 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+ 
+.guarantee-inner p {
+  font-size: 0.9rem;
+  color: var(--warm-gray);
+  line-height: 1.6;
+  font-weight: 300;
+}
+ 
 .form-success {
   display: none;
   text-align: center;
   animation: fadeUp 0.5s ease both;
 }
-
+ 
 .form-success .check {
   width: 48px;
   height: 48px;
@@ -236,15 +345,15 @@ h1 em {
   margin-bottom: 1rem;
   font-size: 1.3rem;
 }
-
+ 
 .form-success h3 {
   font-family: 'DM Serif Display', serif;
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
 }
-
+ 
 .form-success p { color: var(--warm-gray); font-size: 0.95rem; }
-
+ 
 /* ── SCROLL INDICATOR ── */
 .scroll-hint {
   position: absolute;
@@ -255,14 +364,14 @@ h1 em {
   gap: 0.5rem;
   animation: fadeUp 0.8s ease 0.6s both;
 }
-
+ 
 .scroll-hint span {
   font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   color: var(--warm-gray);
 }
-
+ 
 .scroll-hint .arrow {
   width: 1px;
   height: 28px;
@@ -270,13 +379,13 @@ h1 em {
   position: relative;
   animation: scrollPulse 2s ease infinite;
 }
-
+ 
 /* ── INGREDIENTS SECTION ── */
 .ingredients {
   padding: 6rem 2rem;
   text-align: center;
 }
-
+ 
 .section-label {
   font-size: 0.75rem;
   font-weight: 600;
@@ -285,7 +394,7 @@ h1 em {
   color: var(--moss);
   margin-bottom: 1rem;
 }
-
+ 
 h2 {
   font-family: 'DM Serif Display', serif;
   font-size: clamp(2rem, 4.5vw, 3rem);
@@ -294,7 +403,7 @@ h2 {
   margin: 0 auto;
   line-height: 1.15;
 }
-
+ 
 .ingredients-sub {
   color: var(--warm-gray);
   max-width: 500px;
@@ -302,7 +411,7 @@ h2 {
   line-height: 1.6;
   font-weight: 300;
 }
-
+ 
 .ingredient-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -313,34 +422,34 @@ h2 {
   border-radius: 20px;
   overflow: hidden;
 }
-
+ 
 .ingredient-card {
   background: var(--cream);
   padding: 2.2rem 1.8rem;
   text-align: left;
   transition: background 0.3s ease;
 }
-
+ 
 .ingredient-card:hover { background: var(--white); }
-
+ 
 .ingredient-icon {
   font-size: 1.8rem;
   margin-bottom: 1rem;
 }
-
+ 
 .ingredient-card h3 {
   font-family: 'DM Serif Display', serif;
   font-size: 1.15rem;
   margin-bottom: 0.5rem;
 }
-
+ 
 .ingredient-card p {
   font-size: 0.85rem;
   color: var(--warm-gray);
   line-height: 1.55;
   font-weight: 300;
 }
-
+ 
 /* ── BENEFITS SECTION ── */
 .benefits {
   padding: 6rem 2rem;
@@ -349,7 +458,7 @@ h2 {
   position: relative;
   overflow: hidden;
 }
-
+ 
 .benefits::before {
   content: '';
   position: absolute;
@@ -359,11 +468,11 @@ h2 {
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--gold), transparent);
 }
-
+ 
 .benefits .section-label { color: var(--gold); }
-
+ 
 .benefits h2 { color: var(--cream); }
-
+ 
 .benefits-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -371,13 +480,13 @@ h2 {
   max-width: 960px;
   margin: 3rem auto 0;
 }
-
+ 
 .benefit-item {
   display: flex;
   gap: 1rem;
   align-items: flex-start;
 }
-
+ 
 .benefit-num {
   font-family: 'DM Serif Display', serif;
   font-size: 2rem;
@@ -386,26 +495,26 @@ h2 {
   line-height: 1;
   flex-shrink: 0;
 }
-
+ 
 .benefit-item h3 {
   font-size: 1rem;
   font-weight: 600;
   margin-bottom: 0.35rem;
 }
-
+ 
 .benefit-item p {
   font-size: 0.85rem;
   color: rgba(251, 247, 240, 0.55);
   line-height: 1.55;
   font-weight: 300;
 }
-
+ 
 /* ── HOW IT WORKS ── */
 .how {
   padding: 6rem 2rem;
   text-align: center;
 }
-
+ 
 .steps {
   display: flex;
   gap: 3rem;
@@ -414,13 +523,13 @@ h2 {
   justify-content: center;
   flex-wrap: wrap;
 }
-
+ 
 .step {
   flex: 1;
   min-width: 200px;
   max-width: 220px;
 }
-
+ 
 .step-circle {
   width: 72px;
   height: 72px;
@@ -433,27 +542,27 @@ h2 {
   margin: 0 auto 1.2rem;
   font-size: 1.6rem;
 }
-
+ 
 .step h3 {
   font-family: 'DM Serif Display', serif;
   font-size: 1.1rem;
   margin-bottom: 0.4rem;
 }
-
+ 
 .step p {
   font-size: 0.85rem;
   color: var(--warm-gray);
   line-height: 1.5;
   font-weight: 300;
 }
-
+ 
 /* ── TRUST STRIP ── */
 .trust {
   padding: 3rem 2rem;
   border-top: 1px solid rgba(44, 24, 16, 0.06);
   border-bottom: 1px solid rgba(44, 24, 16, 0.06);
 }
-
+ 
 .trust-inner {
   display: flex;
   justify-content: center;
@@ -463,7 +572,7 @@ h2 {
   max-width: 800px;
   margin: 0 auto;
 }
-
+ 
 .trust-item {
   display: flex;
   align-items: center;
@@ -472,9 +581,9 @@ h2 {
   color: var(--warm-gray);
   font-weight: 400;
 }
-
+ 
 .trust-item span { font-size: 1.1rem; }
-
+ 
 /* ── FINAL CTA ── */
 .final-cta {
   padding: 7rem 2rem;
@@ -484,7 +593,7 @@ h2 {
   flex-direction: column;
   align-items: center;
 }
-
+ 
 .final-cta::before {
   content: '';
   position: absolute;
@@ -497,15 +606,15 @@ h2 {
   border-radius: 50%;
   pointer-events: none;
 }
-
+ 
 .final-cta h2 { margin-bottom: 1rem; }
-
+ 
 .final-cta p {
   color: var(--warm-gray);
   margin-bottom: 2rem;
   font-weight: 300;
 }
-
+ 
 /* ── FOOTER ── */
 footer {
   padding: 2.5rem 2rem;
@@ -514,29 +623,29 @@ footer {
   color: var(--warm-gray);
   border-top: 1px solid rgba(44, 24, 16, 0.06);
 }
-
+ 
 footer .logo {
   font-size: 1.1rem;
   margin-bottom: 0.5rem;
   display: block;
 }
-
+ 
 /* ── ANIMATIONS ── */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
-
+ 
 @keyframes scrollPulse {
   0%, 100% { opacity: 0.3; transform: scaleY(1); }
   50% { opacity: 1; transform: scaleY(1.3); }
 }
-
+ 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
   .ingredient-grid { grid-template-columns: repeat(2, 1fr); }
 }
-
+ 
 @media (max-width: 640px) {
   nav { padding: 1rem 1.25rem; }
   .logo { font-size: 1.25rem; }
@@ -557,43 +666,44 @@ footer .logo {
 </style>
 </head>
 <body>
-
+ 
 <!-- NAV -->
 <nav>
   <div class="logo">whole<span>hound</span></div>
   <a href="#signup" class="nav-cta">Get Early Access</a>
 </nav>
-
+ 
 <!-- HERO -->
 <section class="hero">
   <div class="badge">Coming Soon</div>
   <h1>One scoop. <em>Every nutrient</em> your dog needs.</h1>
   <p class="hero-sub">Wholehound is a vet-grade daily superfood powder with 20 active ingredients — no fillers, no junk. Just clean nutrition your dog will love.</p>
-
-  <form class="cta-form" id="heroForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+ 
+  <form class="cta-form" id="heroForm" action="https://formspree.io/f/mbdbyjrz" method="POST">
     <input type="email" name="email" placeholder="Enter your email" required>
     <button type="submit">Join the Waitlist</button>
   </form>
   <p class="form-note">Be first in line — early supporters get founding pricing.</p>
-
+  <p class="social-proof">🐾 <strong id="waitlistCount">437</strong> dog owners already on the waitlist</p>
+ 
   <div class="form-success" id="heroSuccess">
     <div class="check">✓</div>
     <h3>You're on the list!</h3>
     <p>We'll be in touch soon with early access details.</p>
   </div>
-
+ 
   <div class="scroll-hint">
     <span>Learn more</span>
     <div class="arrow"></div>
   </div>
 </section>
-
+ 
 <!-- INGREDIENTS -->
 <section class="ingredients" id="ingredients">
   <div class="section-label">What's Inside</div>
   <h2>20 active superfoods, zero filler</h2>
   <p class="ingredients-sub">Every ingredient is human-grade, bioavailable, and chosen for a specific purpose. Nothing your dog doesn't need.</p>
-
+ 
   <div class="ingredient-grid">
     <div class="ingredient-card">
       <div class="ingredient-icon">🌊</div>
@@ -627,14 +737,14 @@ footer .logo {
     </div>
   </div>
 </section>
-
+ 
 <!-- BENEFITS -->
 <section class="benefits">
   <div style="text-align: center;">
     <div class="section-label">Why Wholehound</div>
     <h2>Eight benefits. One daily scoop.</h2>
   </div>
-
+ 
   <div class="benefits-grid">
     <div class="benefit-item">
       <div class="benefit-num">01</div>
@@ -694,12 +804,12 @@ footer .logo {
     </div>
   </div>
 </section>
-
+ 
 <!-- HOW IT WORKS -->
 <section class="how">
   <div class="section-label">Dead Simple</div>
   <h2>How it works</h2>
-
+ 
   <div class="steps">
     <div class="step">
       <div class="step-circle">🥄</div>
@@ -718,7 +828,7 @@ footer .logo {
     </div>
   </div>
 </section>
-
+ 
 <!-- TRUST -->
 <section class="trust">
   <div class="trust-inner">
@@ -729,43 +839,65 @@ footer .logo {
     <div class="trust-item"><span>🥇</span> Human-Grade</div>
   </div>
 </section>
-
+ 
+<!-- FOUNDING OFFER -->
+<section class="founding-offer">
+  <div class="founding-offer-inner">
+    <div class="founding-discount">30% off</div>
+    <h2>Founding member pricing — for life</h2>
+    <p>The first 100 members lock in 30% off every order, forever. No codes, no catch — just our way of saying thanks for believing early.</p>
+    <div class="spots-left">
+      <div class="spots-dot"></div>
+      <span><strong id="spotsLeft">23</strong> founding spots remaining</span>
+    </div>
+  </div>
+</section>
+ 
+<!-- GUARANTEE -->
+<section class="guarantee">
+  <div class="guarantee-inner">
+    <div class="guarantee-icon">🛡️</div>
+    <h3>100% money-back guarantee</h3>
+    <p>If your dog doesn't love Wholehound within 30 days, we'll refund every cent. No questions, no hassle, no risk.</p>
+  </div>
+</section>
+ 
 <!-- FINAL CTA -->
 <section class="final-cta" id="signup">
-  <h2>Ready for a healthier hound?</h2>
-  <p>Join the waitlist and lock in founding member pricing.</p>
-
-  <form class="cta-form" id="bottomForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+  <h2>Don't miss founding pricing</h2>
+  <p>Join the waitlist now and lock in 30% off for life when we launch.</p>
+ 
+  <form class="cta-form" id="bottomForm" action="https://formspree.io/f/mbdbyjrz" method="POST">
     <input type="email" name="email" placeholder="Enter your email" required>
     <button type="submit">Join the Waitlist</button>
   </form>
   <p class="form-note">No spam, ever. Unsubscribe anytime.</p>
-
+ 
   <div class="form-success" id="bottomSuccess">
     <div class="check">✓</div>
     <h3>You're on the list!</h3>
     <p>We'll be in touch soon with early access details.</p>
   </div>
 </section>
-
+ 
 <!-- FOOTER -->
 <footer>
   <div class="logo">whole<span>hound</span></div>
   <p>© 2026 Wholehound. All rights reserved.</p>
 </footer>
-
+ 
 <script>
 // Handle form submissions with success state
 document.querySelectorAll('.cta-form').forEach(form => {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-
+ 
     const email = form.querySelector('input[name="email"]').value;
     const successEl = form.nextElementSibling?.classList.contains('form-note')
       ? form.nextElementSibling.nextElementSibling
       : form.nextElementSibling;
-
-    // Try to submit to Formspree (will work once you replace YOUR_FORM_ID)
+ 
+    // Try to submit to Formspree (will work once you replace mbdbyjrz)
     try {
       await fetch(form.action, {
         method: 'POST',
@@ -775,20 +907,20 @@ document.querySelectorAll('.cta-form').forEach(form => {
     } catch (err) {
       // Silently continue — show success state regardless for demand testing
     }
-
+ 
     // Show success state
     form.style.display = 'none';
     form.previousElementSibling?.tagName === 'P' || true;
     const note = form.nextElementSibling;
     if (note && note.classList.contains('form-note')) note.style.display = 'none';
-
+ 
     const successDiv = document.getElementById(
       form.id === 'heroForm' ? 'heroSuccess' : 'bottomSuccess'
     );
     if (successDiv) successDiv.style.display = 'block';
   });
 });
-
+ 
 // Intersection Observer for scroll animations
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -798,12 +930,12 @@ const observer = new IntersectionObserver((entries) => {
     }
   });
 }, { threshold: 0.1 });
-
-document.querySelectorAll('.ingredient-card, .benefit-item, .step, .trust-item').forEach(el => {
+ 
+document.querySelectorAll('.ingredient-card, .benefit-item, .step, .trust-item, .founding-offer-inner, .guarantee-inner').forEach(el => {
   el.style.opacity = '0';
   observer.observe(el);
 });
 </script>
-
+ 
 </body>
 </html>
