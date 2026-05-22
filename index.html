@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wholehound — Daily Superfood for Dogs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #FBF7F0;
+  --bark: #2C1810;
+  --moss: #4A6741;
+  --moss-light: #5E8353;
+  --gold: #D4A853;
+  --gold-light: #E8C97A;
+  --warm-gray: #A69585;
+  --blush: #E8D5C4;
+  --white: #FFFFFF;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--cream);
+  color: var(--bark);
+  overflow-x: hidden;
+}
+
+/* ── GRAIN OVERLAY ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 1.25rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  background: rgba(251, 247, 240, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(44, 24, 16, 0.06);
+}
+
+.logo {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.5rem;
+  color: var(--bark);
+  letter-spacing: -0.02em;
+}
+
+.logo span { color: var(--moss); }
+
+.nav-cta {
+  background: var(--moss);
+  color: var(--cream);
+  padding: 0.6rem 1.5rem;
+  border-radius: 100px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+  transition: all 0.3s ease;
+}
+
+.nav-cta:hover {
+  background: var(--bark);
+  transform: translateY(-1px);
+}
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 8rem 2rem 4rem;
+  position: relative;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(74, 103, 65, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -10%;
+  left: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(212, 168, 83, 0.06) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(74, 103, 65, 0.08);
+  border: 1px solid rgba(74, 103, 65, 0.15);
+  padding: 0.5rem 1.2rem;
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--moss);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  animation: fadeUp 0.8s ease both;
+}
+
+.badge::before {
+  content: '🌿';
+}
+
+h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  max-width: 800px;
+  animation: fadeUp 0.8s ease 0.1s both;
+}
+
+h1 em {
+  font-style: italic;
+  color: var(--moss);
+}
+
+.hero-sub {
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  font-weight: 300;
+  color: var(--warm-gray);
+  max-width: 520px;
+  line-height: 1.65;
+  margin-top: 1.5rem;
+  animation: fadeUp 0.8s ease 0.2s both;
+}
+
+/* ── EMAIL FORM ── */
+.cta-form {
+  display: flex;
+  gap: 0;
+  margin-top: 2.5rem;
+  animation: fadeUp 0.8s ease 0.3s both;
+  background: var(--white);
+  border-radius: 100px;
+  padding: 0.35rem;
+  box-shadow: 0 4px 24px rgba(44, 24, 16, 0.06), 0 1px 3px rgba(44, 24, 16, 0.04);
+  border: 1px solid rgba(44, 24, 16, 0.06);
+  max-width: 480px;
+  width: 100%;
+}
+
+.cta-form input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 0.9rem 1.4rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  background: transparent;
+  color: var(--bark);
+  min-width: 0;
+}
+
+.cta-form input::placeholder { color: var(--warm-gray); }
+
+.cta-form button {
+  background: var(--moss);
+  color: var(--cream);
+  border: none;
+  padding: 0.9rem 2rem;
+  border-radius: 100px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+}
+
+.cta-form button:hover {
+  background: var(--bark);
+  transform: scale(1.02);
+}
+
+.form-note {
+  font-size: 0.78rem;
+  color: var(--warm-gray);
+  margin-top: 0.85rem;
+  animation: fadeUp 0.8s ease 0.4s both;
+}
+
+.form-success {
+  display: none;
+  text-align: center;
+  animation: fadeUp 0.5s ease both;
+}
+
+.form-success .check {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--moss);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.form-success h3 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.form-success p { color: var(--warm-gray); font-size: 0.95rem; }
+
+/* ── SCROLL INDICATOR ── */
+.scroll-hint {
+  position: absolute;
+  bottom: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  animation: fadeUp 0.8s ease 0.6s both;
+}
+
+.scroll-hint span {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--warm-gray);
+}
+
+.scroll-hint .arrow {
+  width: 1px;
+  height: 28px;
+  background: var(--warm-gray);
+  position: relative;
+  animation: scrollPulse 2s ease infinite;
+}
+
+/* ── INGREDIENTS SECTION ── */
+.ingredients {
+  padding: 6rem 2rem;
+  text-align: center;
+}
+
+.section-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--moss);
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  letter-spacing: -0.02em;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.15;
+}
+
+.ingredients-sub {
+  color: var(--warm-gray);
+  max-width: 500px;
+  margin: 1.25rem auto 0;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+.ingredient-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1px;
+  max-width: 960px;
+  margin: 3.5rem auto 0;
+  background: rgba(44, 24, 16, 0.06);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.ingredient-card {
+  background: var(--cream);
+  padding: 2.2rem 1.8rem;
+  text-align: left;
+  transition: background 0.3s ease;
+}
+
+.ingredient-card:hover { background: var(--white); }
+
+.ingredient-icon {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.ingredient-card h3 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+}
+
+.ingredient-card p {
+  font-size: 0.85rem;
+  color: var(--warm-gray);
+  line-height: 1.55;
+  font-weight: 300;
+}
+
+/* ── BENEFITS SECTION ── */
+.benefits {
+  padding: 6rem 2rem;
+  background: var(--bark);
+  color: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+
+.benefits::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.benefits .section-label { color: var(--gold); }
+
+.benefits h2 { color: var(--cream); }
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2.5rem;
+  max-width: 960px;
+  margin: 3rem auto 0;
+}
+
+.benefit-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.benefit-num {
+  font-family: 'DM Serif Display', serif;
+  font-size: 2rem;
+  color: var(--gold);
+  opacity: 0.4;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.benefit-item h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.benefit-item p {
+  font-size: 0.85rem;
+  color: rgba(251, 247, 240, 0.55);
+  line-height: 1.55;
+  font-weight: 300;
+}
+
+/* ── HOW IT WORKS ── */
+.how {
+  padding: 6rem 2rem;
+  text-align: center;
+}
+
+.steps {
+  display: flex;
+  gap: 3rem;
+  max-width: 800px;
+  margin: 3rem auto 0;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.step {
+  flex: 1;
+  min-width: 200px;
+  max-width: 220px;
+}
+
+.step-circle {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(74, 103, 65, 0.08);
+  border: 2px solid rgba(74, 103, 65, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.2rem;
+  font-size: 1.6rem;
+}
+
+.step h3 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.1rem;
+  margin-bottom: 0.4rem;
+}
+
+.step p {
+  font-size: 0.85rem;
+  color: var(--warm-gray);
+  line-height: 1.5;
+  font-weight: 300;
+}
+
+/* ── TRUST STRIP ── */
+.trust {
+  padding: 3rem 2rem;
+  border-top: 1px solid rgba(44, 24, 16, 0.06);
+  border-bottom: 1px solid rgba(44, 24, 16, 0.06);
+}
+
+.trust-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--warm-gray);
+  font-weight: 400;
+}
+
+.trust-item span { font-size: 1.1rem; }
+
+/* ── FINAL CTA ── */
+.final-cta {
+  padding: 7rem 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.final-cta::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(212, 168, 83, 0.07) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.final-cta h2 { margin-bottom: 1rem; }
+
+.final-cta p {
+  color: var(--warm-gray);
+  margin-bottom: 2rem;
+  font-weight: 300;
+}
+
+/* ── FOOTER ── */
+footer {
+  padding: 2.5rem 2rem;
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--warm-gray);
+  border-top: 1px solid rgba(44, 24, 16, 0.06);
+}
+
+footer .logo {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; transform: scaleY(1); }
+  50% { opacity: 1; transform: scaleY(1.3); }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 640px) {
+  nav { padding: 1rem 1.25rem; }
+  .logo { font-size: 1.25rem; }
+  .hero { padding: 7rem 1.5rem 4rem; }
+  .cta-form {
+    flex-direction: column;
+    border-radius: 16px;
+    padding: 0.5rem;
+  }
+  .cta-form button {
+    width: 100%;
+    border-radius: 12px;
+  }
+  .ingredient-grid { grid-template-columns: 1fr; }
+  .steps { gap: 2rem; }
+  .trust-inner { gap: 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">whole<span>hound</span></div>
+  <a href="#signup" class="nav-cta">Get Early Access</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="badge">Coming Soon</div>
+  <h1>One scoop. <em>Every nutrient</em> your dog needs.</h1>
+  <p class="hero-sub">Wholehound is a vet-grade daily superfood powder with 20 active ingredients — no fillers, no junk. Just clean nutrition your dog will love.</p>
+
+  <form class="cta-form" id="heroForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <input type="email" name="email" placeholder="Enter your email" required>
+    <button type="submit">Join the Waitlist</button>
+  </form>
+  <p class="form-note">Be first in line — early supporters get founding pricing.</p>
+
+  <div class="form-success" id="heroSuccess">
+    <div class="check">✓</div>
+    <h3>You're on the list!</h3>
+    <p>We'll be in touch soon with early access details.</p>
+  </div>
+
+  <div class="scroll-hint">
+    <span>Learn more</span>
+    <div class="arrow"></div>
+  </div>
+</section>
+
+<!-- INGREDIENTS -->
+<section class="ingredients" id="ingredients">
+  <div class="section-label">What's Inside</div>
+  <h2>20 active superfoods, zero filler</h2>
+  <p class="ingredients-sub">Every ingredient is human-grade, bioavailable, and chosen for a specific purpose. Nothing your dog doesn't need.</p>
+
+  <div class="ingredient-grid">
+    <div class="ingredient-card">
+      <div class="ingredient-icon">🌊</div>
+      <h3>Spirulina & Chlorella</h3>
+      <p>Nutrient-dense microalgae packed with antioxidants, iron, and B-vitamins for sustained energy.</p>
+    </div>
+    <div class="ingredient-card">
+      <div class="ingredient-icon">🎃</div>
+      <h3>Pumpkin & Cranberry</h3>
+      <p>Supports healthy digestion and urinary tract health with prebiotic fibre and proanthocyanidins.</p>
+    </div>
+    <div class="ingredient-card">
+      <div class="ingredient-icon">🥬</div>
+      <h3>Kale, Spinach & Wheatgrass</h3>
+      <p>Powerhouse greens delivering vitamins A, C, K, and chlorophyll for immune and skin support.</p>
+    </div>
+    <div class="ingredient-card">
+      <div class="ingredient-icon">💪</div>
+      <h3>Taurine & L-Carnitine</h3>
+      <p>Amino acids that support heart function, muscle recovery, and healthy metabolism.</p>
+    </div>
+    <div class="ingredient-card">
+      <div class="ingredient-icon">🌱</div>
+      <h3>Irish Moss & Dandelion</h3>
+      <p>Joint mobility support and gentle detoxification with naturally occurring minerals.</p>
+    </div>
+    <div class="ingredient-card">
+      <div class="ingredient-icon">🦠</div>
+      <h3>Probiotics & Chicory Root</h3>
+      <p>Promotes gut balance, firmer stools, and better nutrient absorption from day one.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits">
+  <div style="text-align: center;">
+    <div class="section-label">Why Wholehound</div>
+    <h2>Eight benefits. One daily scoop.</h2>
+  </div>
+
+  <div class="benefits-grid">
+    <div class="benefit-item">
+      <div class="benefit-num">01</div>
+      <div>
+        <h3>Gut Health & Digestion</h3>
+        <p>Probiotics and prebiotic fibre for balanced digestion and firmer stools.</p>
+      </div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-num">02</div>
+      <div>
+        <h3>Skin & Coat</h3>
+        <p>Antioxidant-rich greens nourish from the inside out for a visibly healthier coat.</p>
+      </div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-num">03</div>
+      <div>
+        <h3>Hip & Joint Mobility</h3>
+        <p>L-Carnitine and Irish moss support flexible movement at every age.</p>
+      </div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-num">04</div>
+      <div>
+        <h3>Dental & Fresh Breath</h3>
+        <p>Many owners notice fresher breath and cleaner teeth within two weeks.</p>
+      </div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-num">05</div>
+      <div>
+        <h3>Immune Support</h3>
+        <p>Spirulina, chlorella, and vitamin-rich greens strengthen natural defences.</p>
+      </div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-num">06</div>
+      <div>
+        <h3>Energy & Vitality</h3>
+        <p>Bioavailable nutrients fuel sustained energy without sugar or stimulants.</p>
+      </div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-num">07</div>
+      <div>
+        <h3>Allergy Relief</h3>
+        <p>Anti-inflammatory ingredients help manage seasonal and food sensitivities.</p>
+      </div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-num">08</div>
+      <div>
+        <h3>Longevity</h3>
+        <p>A daily foundation of superfoods designed to support a longer, healthier life.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how">
+  <div class="section-label">Dead Simple</div>
+  <h2>How it works</h2>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-circle">🥄</div>
+      <h3>Scoop</h3>
+      <p>One level scoop sized to your dog's weight.</p>
+    </div>
+    <div class="step">
+      <div class="step-circle">🍲</div>
+      <h3>Sprinkle</h3>
+      <p>Mix into their regular food — wet, dry, or raw.</p>
+    </div>
+    <div class="step">
+      <div class="step-circle">🐕</div>
+      <h3>Thrive</h3>
+      <p>See results in as little as two weeks.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="trust">
+  <div class="trust-inner">
+    <div class="trust-item"><span>🧪</span> 20 Active Ingredients</div>
+    <div class="trust-item"><span>🇦🇺</span> Made in Australia</div>
+    <div class="trust-item"><span>👩‍⚕️</span> Vet-Formulated</div>
+    <div class="trust-item"><span>🚫</span> Zero Fillers</div>
+    <div class="trust-item"><span>🥇</span> Human-Grade</div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta" id="signup">
+  <h2>Ready for a healthier hound?</h2>
+  <p>Join the waitlist and lock in founding member pricing.</p>
+
+  <form class="cta-form" id="bottomForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <input type="email" name="email" placeholder="Enter your email" required>
+    <button type="submit">Join the Waitlist</button>
+  </form>
+  <p class="form-note">No spam, ever. Unsubscribe anytime.</p>
+
+  <div class="form-success" id="bottomSuccess">
+    <div class="check">✓</div>
+    <h3>You're on the list!</h3>
+    <p>We'll be in touch soon with early access details.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="logo">whole<span>hound</span></div>
+  <p>© 2026 Wholehound. All rights reserved.</p>
+</footer>
+
+<script>
+// Handle form submissions with success state
+document.querySelectorAll('.cta-form').forEach(form => {
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const email = form.querySelector('input[name="email"]').value;
+    const successEl = form.nextElementSibling?.classList.contains('form-note')
+      ? form.nextElementSibling.nextElementSibling
+      : form.nextElementSibling;
+
+    // Try to submit to Formspree (will work once you replace YOUR_FORM_ID)
+    try {
+      await fetch(form.action, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email })
+      });
+    } catch (err) {
+      // Silently continue — show success state regardless for demand testing
+    }
+
+    // Show success state
+    form.style.display = 'none';
+    form.previousElementSibling?.tagName === 'P' || true;
+    const note = form.nextElementSibling;
+    if (note && note.classList.contains('form-note')) note.style.display = 'none';
+
+    const successDiv = document.getElementById(
+      form.id === 'heroForm' ? 'heroSuccess' : 'bottomSuccess'
+    );
+    if (successDiv) successDiv.style.display = 'block';
+  });
+});
+
+// Intersection Observer for scroll animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.animation = 'fadeUp 0.6s ease both';
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.ingredient-card, .benefit-item, .step, .trust-item').forEach(el => {
+  el.style.opacity = '0';
+  observer.observe(el);
+});
+</script>
+
+</body>
+</html>
